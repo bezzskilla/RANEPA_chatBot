@@ -2,10 +2,10 @@ const { Telegraf } = require('telegraf')
 const dotenv = require('dotenv').config()
 const bot = new Telegraf(process.env.BOT_TOKEN)
 const mongoose = require('mongoose')
-const { UniversityModel, UserModel } = require('./seed.js')
+const { UniversityModel, UserModel } = require('./base/seed.js')
 const { Extra, Markup, Stage, session } = Telegraf
 
-const SceneGenerator = require('./scene')
+const SceneGenerator = require('./Scenes/scene')
 const curScene = new SceneGenerator()
 const firstScene = curScene.firstScene()  //введи баллы за русский
 const secondScene = curScene.secondScene() //1 доп предмет

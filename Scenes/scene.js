@@ -1,7 +1,7 @@
 const { Telegraf } = require('telegraf')
 const { Extra, Markup, Stage, session } = Telegraf
 const Scene = require('telegraf/scenes/base')
-const { UniversityModel } = require('./seed.js')
+const { UniversityModel } = require('../base/seed.js')
 
 class SceneGenerator {
   firstScene() {
