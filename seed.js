@@ -527,7 +527,7 @@ async function seed() {
       codeOfdirection: "38.03.03",
       nameOfdirection: 'Управление человеческими ресурсами в международном бизнесе',
       subjects: ['Математика', 'Иностранный язык', 'Русский язык', 'Обществознание'],
-      passingScore: 'зачислены победители олимпиад',
+      passingScore: 300, //зачислены победители олимпиад,
       cost: 515000,
       amountOfbudget: 10,
       amountOfPaid: 20,
@@ -731,7 +731,7 @@ async function seed() {
     }
     ]
   })
-  //иом ион игсу
 }
+// seed()
 
 module.exports = { UniversityModel, UserModel };

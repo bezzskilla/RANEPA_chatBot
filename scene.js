@@ -1,7 +1,7 @@
 const { Telegraf } = require('telegraf')
 const { Extra, Markup, Stage, session } = Telegraf
 const Scene = require('telegraf/scenes/base')
-const { UniversityModel, UserModel } = require('./mongo')
+const { UniversityModel } = require('./seed.js')
 
 class SceneGenerator {
   firstScene() {
@@ -125,16 +125,15 @@ class SceneGenerator {
           }
         });
       }
-      console.log(ctx.session.answer) //undefined из-за абзаца снизу
       ctx.session.answer = ctx.session.answer.map(el => {
         if (el && typeof el.passingScore === 'number') {
           if (el.passingScore - 10 < ctx.session.currentScore)
             return el
         }
       })
-      console.log(ctx.session.answer)
+      // console.log(ctx.session.answer)
       if (ctx.session.answer.length == 0) {
-        await ctx.reply('для вас программ не найдено\n\n  1.возможно программ с таким набором предметов не существует\n  2.возможно недостаточно баллов\n\nпопробуйте поискать через /searchCommerce')
+        await ctx.reply('Для вас программ не найдено\n\n1.возможно программ с таким набором предметов не существует\n2.возможно недостаточно баллов\n\n попробуйте поискать через /searchCommerce')
       }
       else {
         ctx.session.answer.sort(function (a, b) { //сортировка по цене; переделать на сортировку по проходному баллу
@@ -241,7 +240,7 @@ class SceneGenerator {
         return 0;
       })
       if (ctx.session.answerCom.length == 0) {
-        await ctx.reply('для вас программ не найдено\n\n  Программ с таким набором предметов не существует\n  Попробуйте еще раз /searchCommerce')
+        await ctx.reply('Программы с таким набором предметов не реализуются в РАНХиГС\n\nПопробуйте еще раз с другим набором программ\n\n/searchCommerce')
       }
       else {
         ctx.session.answerCom.forEach((el, i) => {

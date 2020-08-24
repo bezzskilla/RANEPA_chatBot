@@ -2,7 +2,7 @@ const { Telegraf } = require('telegraf')
 const dotenv = require('dotenv').config()
 const bot = new Telegraf(process.env.BOT_TOKEN)
 const mongoose = require('mongoose')
-const { UniversityModel, UserModel } = require('./mongo')
+const { UniversityModel, UserModel } = require('./seed.js')
 const { Extra, Markup, Stage, session } = Telegraf
 
 const SceneGenerator = require('./scene')
